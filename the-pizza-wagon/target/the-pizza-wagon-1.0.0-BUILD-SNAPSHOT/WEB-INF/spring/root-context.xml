@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="UserValidator" class="com.rjsk.mvc.data.validators.SignupValidator" />
+	<bean id="LoginValidator" class="com.rjsk.mvc.data.validators.LoginValidator" />
+
+	<bean id="orderBo" class="com.rjsk.mvc.data.bo.OrderBoImpl">
+		<constructor-arg ref="orderDao" />
+	</bean>
+	<bean id="orderDao" class="com.rjsk.mvc.data.dao.OrderDaoImpl">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<bean id="userBo" class="com.rjsk.mvc.data.bo.UserBoImpl">
+		<constructor-arg ref="userDao" />
+	</bean>
+	<bean id="userDao" class="com.rjsk.mvc.data.dao.UserDaoimpl">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<bean id="itemBo" class="com.rjsk.mvc.data.bo.ItemBoImpl">
+		<constructor-arg ref="itemDao" />
+	</bean>
+	<bean id="itemDao" class="com.rjsk.mvc.data.dao.ItemDaoImpl">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<bean id="reviewBo" class="com.rjsk.mvc.data.bo.ReviewBoImpl">
+		<constructor-arg ref="reviewDao" />
+	</bean>
+	<bean id="reviewDao" class="com.rjsk.mvc.data.dao.ReviewDaoImpl">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/the-pizza-wagon" />
+		<property name="username" value="root" />
+		<property name="password" value="joshi" />
+	</bean>
+	      
+    <!-- Spring Email Sender Bean Configuration -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+        <property name="username" value="perfecttreatco@gmail.com" />
+        <property name="password" value="perfectskrj" />
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.debug">true</prop>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+                <prop key="mail.smtp.socketFactory.port">465</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+            </props>
+        </property>
+    </bean>
+    <!-- Spring Email Attachment Configuration -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- Maximum Upload Size In Bytes -->
+        <property name="maxUploadSize" value="20971520" />
+        <!-- Maximum Size Of File In Memory (In Bytes) -->
+        <property name="maxInMemorySize" value="1048576" />
+    </bean>
+   
+    <!-- Resolves Views Selected For Rendering by @Controllers to *.jsp Resources in the /WEB-INF/ Folder -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    
+    <!-- Send Email Exception Resolver i.e. In Case Of Exception The Controller Will Navigate To 'error.jsp' & Will Display The Exception Message -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">error</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

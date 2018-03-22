@@ -1,0 +1,66 @@
+hr{
+	margin-top:0px;
+}
+.inset {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,0.6), 
+    0 1px 1px rgba(0,0,0,0.1);
+  background-color: transparent !important;
+  z-index: 999;
+}
+
+.inset img {
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
+  display: block;
+  position: relative;
+  z-index: 998;
+}
+/***** Top menu *****/
+.navbar {
+    text-align: center;	
+	margin-bottom: 0;
+	border: 0;
+	-o-transition: all .6s; -moz-transition: all .6s; -webkit-transition: all .6s; -ms-transition: all .6s; transition: all .6s;
+}
+.navbar-right { margin-right: 0; }
+
+ul.navbar-nav { font-size: 16px; color: #fff; }
+.navbar-inverse{
+	background-color: transparent;
+}
+.navbar-inverse ul.navbar-nav li a { text-align: center;	
+	padding-left: 5px; padding-right: 5px; color: #fff; }
+.navbar-inverse ul.navbar-nav li a:hover { text-align: center;	
+	color: #ca8bdc; }
+.navbar-inverse ul.navbar-nav li a:focus { text-align: center;	
+	color: #ca8bdc; outline: 0; }
+
+.navbar-inverse ul.navbar-nav li a i { text-align: center;	
+	position: relative; font-size: 32px; }
+.navbar-inverse ul.navbar-nav li a i span {
+	text-align: center;	
+	position: absolute; top: -2px; right: -30px; width: auto; margin-top: 0; padding: 3px 5px;
+	background: #ca8bdc; 
+	font-family: 'Roboto', sans-serif; font-size: 12px; color: #fff; font-weight: 300;
+	-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+
+.navbar-inverse ul.navbar-nav li a span {
+	text-align: center;	
+	display: inline-block; width: 100%; margin-top: 8px; color: #fff; color: rgba(255, 255, 255, 0.8);
+	-o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+.navbar-inverse ul.navbar-nav li a:hover span,
+.navbar-inverse ul.navbar-nav li a:focus span { color: #678; }
+.navbar-brand {
+	text-align: center;	
+	width: 143px;
+	height: 90px;
+	padding:5px 5px 10px 5px;
+	text-indent: -99999px;
+}

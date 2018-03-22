@@ -1,0 +1,4 @@
+footer { padding: 40px 0 45px 0; background: #f8f8f8;}
+.footer-copyright { color:#000;text-align:center; }
+.footer-copyright a { color: #000; border-bottom: 1px dotted #888; }
+.footer-copyright a:hover, .footer-copyright a:focus { color: #888; border: 0; }
