@@ -60,12 +60,14 @@
 			  			 	<input id="mailAttachment" type="file" name="attachFileObj" size="60" />
 			  			</div>
 <%  }else { %>
+						<div class="form-group">
+			  			 	<input id="mailAttachment" type="file" name="attachFileObj" size="60" style="display: none;"/>
+			  			</div>
 			  			<div class="form-group">
 			  				<label for="mailMessage"> Message</label>
 			  			 	<textarea class="form-control" id="mailMessage" name="message" placeholder=" Enter Your Message" rows="5"></textarea>
 			  			</div>
 <%  } %>
-
 			  			<div>
 			  				<button type="submit" id="sendEmailBtn" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>
 		  				</div>
